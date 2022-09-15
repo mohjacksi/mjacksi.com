@@ -22,7 +22,7 @@
                                  <form method="POST" action="{{ route('login') }}" class="user">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="contact@lucian.host" required autocomplete="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="{{ __('E-Mail Address') }}" autofocus>
+                                        <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="{{ __('E-Mail Address') }}" autofocus>
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input id="password" placeholder="{{ __('Password') }}" type="password" id="exampleInputPassword"  class="form-control form-control-user @error('password') is-invalid @enderror" name="password" value="niva12345" required autocomplete="current-password">
+                                        <input id="password" placeholder="{{ __('Password') }}" type="password" id="exampleInputPassword"  class="form-control form-control-user @error('password') is-invalid @enderror" name="password" value="" required autocomplete="current-password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                                     </button>
 
                                     <hr>
-        
+
                                     <a  href="{{ url('auth/facebook') }}" class="btn btn-facebook btn-user btn-block">
                                         <i class="fab fa-facebook-f fa-fw"></i>{{clean( trans('niva-backend.login_facebook') , array('Attr.EnableID' => true))}}
                                     </a>
@@ -71,7 +71,7 @@
                                 <div class="text-center">
                                     <a class="small" href="{{ route('register') }}">{{clean( trans('niva-backend.create_acc') , array('Attr.EnableID' => true))}}</a>
                                 </div>
-                            
+
                             </div>
 
                         </div>

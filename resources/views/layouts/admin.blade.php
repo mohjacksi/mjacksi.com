@@ -13,7 +13,7 @@
     <link href="{{asset('css/libs/bootstrap4.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs/fontawesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs/custom-dashboard.css')}}" rel="stylesheet">
-    
+
     @yield('styles')
 
 </head>
@@ -31,7 +31,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fab fa-github"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Venor<sup>v2.0</sup></div>
+                <div class="sidebar-brand-text mx-3">mjacksi<sup>v2.0</sup></div>
             </a>
 
             <!-- Divider -->
@@ -61,19 +61,19 @@
                 <div id="collapsePages" class="collapse"  data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                     
-                        
+
+
 
                         <a class="collapse-item" href="{{ route('page.index') }}?language=@php echo $lang->code; @endphp">{{clean( trans('niva-backend.all_pages') , array('Attr.EnableID' => true))}}</a>
                         <a class="collapse-item" href="{{ route('page.create') }}?language=@php echo $lang->code; @endphp">{{clean( trans('niva-backend.create_page') , array('Attr.EnableID' => true))}}</a>
-                       
+
                         <h6 class="collapse-header">{{clean( trans('niva-backend.custom_pages') , array('Attr.EnableID' => true))}}</h6>
 
-                        
+
                            <a class="collapse-item" href="{{ route('index-custom') }}?language=@php echo $lang->code; @endphp">{{clean( trans('niva-backend.custom_templates') , array('Attr.EnableID' => true))}}</a>
 
 
-                        
+
                     </div>
                 </div>
             </li>
@@ -185,13 +185,13 @@
             @endif
 
 
-           
 
 
-            
 
 
-  
+
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -222,12 +222,12 @@
                     </button>
 
 
-     
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-    
+
 
 
                         <li> <a target="_blank" href="{{ route('home') }}" class="view-website-link d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fab fa-chrome"></i> {{clean( trans('niva-backend.view_website') , array('Attr.EnableID' => true))}}</a></li>
@@ -256,7 +256,7 @@
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{clean( trans('niva-backend.logout') , array('Attr.EnableID' => true))}}
                                 </a>
-                               
+
                             </div>
                         </li>
 
@@ -265,7 +265,7 @@
                 </nav>
 
                  @yield('content')
- 
+
 
             </div>
             <!-- End of Main Content -->
@@ -322,9 +322,9 @@
 
 
     @yield('footer')
-   
 
-    
+
+
 
 
 </body>

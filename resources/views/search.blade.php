@@ -5,15 +5,15 @@
 @section('meta')  @endsection
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{clean( trans('niva-backend.you_searched_for') , array('Attr.EnableID' => true))}} {{$term}}</h1>
    </div>
 
-   
 
- 
+
+
 
    <div class="portfolio-section-filters">
       <div class="container">
@@ -34,11 +34,11 @@
 	                        </div>
 	                      </div>
 	                      @endforeach
-	                @else 
+	                @else
 					    <div>
 					        <h4 class="no-results">{{clean( trans('niva-backend.no_results') , array('Attr.EnableID' => true))}}</h4>
 					    </div>
-					@endif     
+					@endif
 
                   </div>
             </div>
@@ -57,7 +57,7 @@
 @section('scripts')
 <script type="text/javascript">
 		$(document).ready(function () {
-			jQuery('.header__search__venor input').val("{{$term}}") //blade / php dynamic functionality
+			jQuery('.header__search__mjacksi input').val("{{$term}}") //blade / php dynamic functionality
 		});
 </script>
 @endsection

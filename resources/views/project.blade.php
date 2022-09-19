@@ -8,8 +8,8 @@
 @endsection
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{$project->meta_title}}</h1>
    </div>
@@ -19,13 +19,13 @@
    			<div class="row">
 				<div class="col-md-8">
 			        <h2 class="post-name">{{$project->meta_title}}</h2>
-			        <span class="venor-animate-border"></span>
+			        <span class="mjacksi-animate-border"></span>
 			        {!!$project->body!!}
 				</div>
 			    <div class="col-md-4">
 			        <h4 class="post-name">Info </h4>
-			        <span class="venor-animate-border"></span>
-			        
+			        <span class="mjacksi-animate-border"></span>
+
 			        <p><strong>{{$project->date}}</strong></p>
 			        <p><strong>{{$project->client}}</strong></p>
 			        <p><strong>{{$project->project_category->name}}</strong></p>
@@ -60,7 +60,7 @@
 							</a>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="featured-image">
 							<a href="{{$project->img_gal4}}">
@@ -70,11 +70,11 @@
 					</div>
 
 				</div>
-				
+
 			</div>
 
    		</div>
-   		
+
    	</div>
 
 

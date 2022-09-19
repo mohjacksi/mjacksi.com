@@ -8,12 +8,12 @@
 
 
 
-    <div class="slider-venor-section">
-        <div class="slider-venor owl-carousel">
-            
+    <div class="slider-mjacksi-section">
+        <div class="slider-mjacksi owl-carousel">
+
             @foreach( $sliders as $slido )
-            
-            <div class="slider-inner-venor">
+
+            <div class="slider-inner-mjacksi">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-5">
@@ -24,14 +24,14 @@
                                @if($slido->typed_text)
                                     <script type="text/javascript">
                                         var arr = {!!$slido->typed_text!!};
-                                    </script> 
+                                    </script>
                                 @endif
 
                                <div class="slider-body">{!!$slido->bodyslider!!}</div>
                                <a href="{!!$slido->button_link!!}" target="_self" class="btn btn-slider"><span>{!!$slido->button_text!!}</span></a>
                                <a href="{!!$slido->button_link2!!}" target="_self" class="btn btn-slider2"><span>{!!$slido->button_text2!!}</span></a>
                             </div>
-                            
+
                          </div>
                          <div class="col-md-7">
                             <div class="slider-image">
@@ -42,23 +42,23 @@
                 </div>
             </div>
 
-            
+
 
             @endforeach
-        
+
         </div>
 
 
     </div>
 
-    
+
 
     <div class="about-section">
         <div class="container">
             <div class="row">
-               
+
                 <div class="col-md-7">
-                    
+
                     <div class="pictures-row">
                         <div class="row">
                             <div class="col-md-6">
@@ -104,26 +104,26 @@
 
     <div class="services-section">
         <div class="container">
-            
+
             <h3>{!!$homesetting->services_title!!}</h3>
 
             <div class="description-services">{!!$homesetting->sevices_text!!}</div>
 
             <div class="service-boxes-slider owl-carousel">
-                
+
                 @foreach( $services as $service )
 
                 <div class="card-parent">
                     <div class="card featured to-top-left">
-        
+
                         <div class="heading-wrapper">
                             <h4 class="heading">{!!$service->icon!!} {{$service->title}}</h4>
-                        </div> 
-        
+                        </div>
+
                         <div class="paragraph-wrapper">
                             <p class="paragraph">{{$service->description}}</p>
                         </div>
-        
+
                         <div class="image-wrapper to-bottom">
                             <div class="gallery">
                                 <img width="400" height="400" class="lazy img-fluid" src="/public/img/loading-blog.gif" data-src="{{$service->photo ? '/public/images/media/' . $service->photo->file : '/public/img/200x200.png'}}" alt="{{$service->title}}">
@@ -134,8 +134,8 @@
                 </div>
                 @endforeach
 
-            </div> 
-     
+            </div>
+
         </div>
     </div>
 
@@ -147,9 +147,9 @@
 
 
             <div class="row">
-                
+
                 @foreach($projects as $key=>$project)
-                    
+
                     <div class="col-md-6">
                         <a href="{{URL::to('/')}}/project/{{$project->slug}}" title="{{$project->title}}">
                             <div data-tilt data-tilt-gyroscope="false" data-tilt-scale="1.05" data-tilt-speed="200"  data-tilt-perspective="700" data-hover="" data-tilt-glare="true" data-tilt-max-glare="0.1" data-tilt-max="30"  class="project-box-div">
@@ -179,7 +179,7 @@
 
                 @endforeach
 
-            
+
             </div>
         </div>
     </div>
@@ -203,14 +203,14 @@
                         <span class="timer" data-from="0" data-to="{{$homesetting->count_number2}}" data-speed="4000">{{$homesetting->count_number2}}</span>
                         <h4>{{$homesetting->count_description2}}</h4>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-3">
                     <div class="radial">
                         <span class="timer" data-from="0" data-to="{{$homesetting->count_number3}}" data-speed="4000">{{$homesetting->count_number3}}</span>
                         <h4>{{$homesetting->count_description3}}</h4>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-3">
                     <div class="radial">
@@ -280,22 +280,22 @@
                                 <h3 class="post-name">
                                     <a href="{{URL::to('/')}}/post/{{$post->slug}}" title="{{$post->title}}">{{$post->title}}</a>
                                 </h3>
-                                <div class="post-category-comment-date">                             
+                                <div class="post-category-comment-date">
                                    <span class="post-date"><i class="far fa-clock"></i> {{ date('d.M.Y', strtotime($post->created_at)) }}</span>
                                    <span class="post-author">
                                    <i class="far fa-user" ></i>
                                    <a href="#0">{{$post->user->name}}</a>
                                    </span>
                                 </div>
-                                
-    
+
+
                             </div>
                         </div>
                     </article>
                 </div>
                 @endforeach
 
-                
+
             </div>
 
         </div>

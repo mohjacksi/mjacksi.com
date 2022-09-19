@@ -1,9 +1,11 @@
 /*
-Theme Name: Niva JS Dashboard
+
+Mohammed Jacksi
+Website URI: mjacksi.com
 Theme URI: https://niva.lucian.host/
-Description: Agency Theme
+Description: Offical website
 Version: 1.0
-Author: Sweet Themes
+Author: Mohammed Jacksi
 
 */
 
@@ -40,10 +42,10 @@ Author: Sweet Themes
 
         if ( jQuery( ".dropzone" ).length ) {
             Dropzone.autoDiscover = false;
-          
-            var myDropzone = new Dropzone(".dropzone", { 
+
+            var myDropzone = new D          ropzone(".dropzone", {
                maxFilesize: 10,
-               acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp"
+                acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp"
             });
         }
 

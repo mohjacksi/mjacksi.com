@@ -29,7 +29,7 @@
     <meta itemprop="name" content="@yield('title')">
     <meta itemprop="description" content="@yield('meta')">
     <meta itemprop="image" content="{{route('home')}}{{$setting->photo ? '/public/images/media/' . $setting->photo->file : '/public/img/200x200.png'}}">
-    
+
     @if($setting->OGgraph_switch == 1)
 
     <meta property="og:title" content="@yield('title')" />
@@ -38,7 +38,7 @@
     <meta property="og:image" content="{{route('home')}}{{$setting->photo ? '/public/images/media/' . $setting->photo->file : '/public/img/200x200.png'}}" />
     <meta property="og:site_name" content="{{$setting->author}}" />
     <meta property="og:description" content="@yield('meta')" />
-    
+
     @endif
 
     @if($setting->analytics_switch == 1)
@@ -52,7 +52,7 @@
 
         gtag('config', '{{$setting->analytics}}');
     </script>
-    
+
     @endif
 
     @if($setting->facebook_pixel_switch == 1)
@@ -74,9 +74,9 @@
     src="https://www.facebook.com/tr?id={{$setting->facebook_pixel}}&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
-    
+
     @endif
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{$setting->favicon}}" type="image/x-icon">
     <link rel="icon" href="{{$setting->favicon}}" type="image/x-icon">
@@ -84,22 +84,22 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
-    
-    @if($currentLang->rtl == 1) 
+
+    @if($currentLang->rtl == 1)
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    @else 
+    @else
         <link href="{{$setting->font}}" rel="stylesheet">
     @endif
     <!-- Styles -->
     <link href="{{ asset('css/front/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/libs/fontawesome.min.css')}}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/front/owl.carousel.min.css')}}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('css/front/venor.css') }}" type="text/css" rel="stylesheet">
-  
+    <link href="{{ asset('css/front/mjacksi.css') }}" type="text/css" rel="stylesheet">
+
 
     @yield('styles')
 
-    @if($currentLang->rtl == 1) 
+    @if($currentLang->rtl == 1)
         <link href="{{ asset('css/front/rtl.css') }}" type="text/css" rel="stylesheet">
     @endif
 
@@ -107,9 +107,9 @@
     <!-- Inline Styles -->
     <style>
         body {
-            @if($currentLang->rtl == 1) 
+            @if($currentLang->rtl == 1)
                 font-family: 'Cairo', sans-serif;
-            @else 
+            @else
                 font-family: 'Inter', sans-serif;
             @endif
         }
@@ -126,38 +126,38 @@
 
     <header class="header">
 
-        
 
-        <div class="header__content__venor">
+
+        <div class="header__content__mjacksi">
             <div class="header__logo">
                 <a href="{{url('/')}}" title="{{$setting->title}}">
                     <img width="105" height="22" class="img-fluid logo-front" src="{{$setting->photo ? '/public/images/media/' . $setting->photo->file : '/public/img/200x200.png'}}" alt="logo">
                 </a>
             </div>
 
-            <form action="{{ route('search') }}" class="header__search__venor" method="GET">
+            <form action="{{ route('search') }}" class="header__search__mjacksi" method="GET">
                 <input id="search" type="text" name="term" placeholder="{{clean( trans('niva-backend.search_text') , array('Attr.EnableID' => true))}}" autocomplete="off">
                 <button type="submit"><i class="fas fa-search"></i></button>
                 <button type="button" class="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg></button>
-                <div id="project_list"></div>        
+                <div id="project_list"></div>
             </form>
 
 
-            <div class="header__menu__venor">
+            <div class="header__menu__mjacksi">
 
 
                 <ul class="header__nav">
 
                     @foreach( $menus->sortBy('order') as $prod )
-                       
+
                         @if($prod->on_off_submenu == 1)
                            <li class="header__nav-item dropdown">
                                 <a class="header__nav-link dropdown-toggle" href="{{$prod->link}}"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$prod->name}}
                                 </a>
                                 {!! $prod->submenu !!}
-                               
+
                             </li>
-                        @else 
+                        @else
                              <li class="header__nav-item"> <a title="{{$prod->name}}" class="header__nav-link" href="{{$prod->link}}">{{$prod->name}}</a> </li>
                         @endif
                     @endforeach
@@ -165,8 +165,8 @@
                 </ul>
             </div>
 
-            <div class="header__actions__venor">
-                
+            <div class="header__actions__mjacksi">
+
                 <div class="header__action header__action--search">
                     <button class="header__action-btn" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"></path></svg></button>
                 </div>
@@ -174,14 +174,14 @@
                 <div class="header__lang">
 
                     @if (!empty($currentLang) && count($langs) > 1)
-   
+
 
                         <a class="header__lang-btn" href="#" role="button" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img width="16" height="16" src="{{$currentLang->photo ? '/public/images/media/' . $currentLang->photo->file : '/public/img/200x200.png'}}" alt="flag">
                             <span>{{$currentLang->name}}</span>
                         </a>
 
-         
+
                         <ul class="dropdown-menu header__lang-dropdown" aria-labelledby="dropdownLang">
                             @foreach ($langs as $key => $lang)
                             <li><a title="{{$lang->name}}"  href='{{ route('changeLanguage', $lang->code) }}'><img width="16" height="16" src="{{$lang->photo ? '/public/images/media/' . $lang->photo->file : '/public/img/200x200.png'}}" alt="flag"><span>{{$lang->name}}</span></a></li>
@@ -198,7 +198,7 @@
                 </div>
             </div>
 
-            <button class="header__btn__venor" type="button">
+            <button class="header__btn__mjacksi" type="button">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -225,7 +225,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 
 
     <footer class="footer-section">
@@ -236,7 +236,7 @@
                         <div class="inner">
                             <span>{{$headerfooter->footer_col1_subtitle}}</span>
                             <h4>{{$headerfooter->footer_col1_title}}</h4>
-                            <a class="btn btn-style2" href="{{$headerfooter->footer_col1_buttonlink}}"> <span>{{$headerfooter->footer_col1_buttontext}}</span> </a> 
+                            <a class="btn btn-style2" href="{{$headerfooter->footer_col1_buttonlink}}"> <span>{{$headerfooter->footer_col1_buttontext}}</span> </a>
                         </div>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
                                 <div class="footer-widget">
                                     <div class="footer-widget widget_nav_menu">
                                         <h4 class="title">{{$headerfooter->footer_col2_title1}}</h4>
-                                        <span class="venor-animate-border"></span>
+                                        <span class="mjacksi-animate-border"></span>
                                         <div class="menu-quick-link-container">
                                             {!!$headerfooter->footer_col2_html1!!}
                                         </div>
@@ -258,7 +258,7 @@
                                 <div class="footer-widget">
                                     <div class="widget widget_custom_html">
                                         <h4 class="title">{{$headerfooter->footer_col2_title2}}</h4>
-                                        <span class="venor-animate-border"></span>
+                                        <span class="mjacksi-animate-border"></span>
                                         <div class="custom-html-widget">
                                             {!!$headerfooter->footer_col2_html2!!}
                                         </div>
@@ -283,7 +283,7 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
         </svg>
     </div>
-  
+
 
 
 
@@ -291,19 +291,19 @@
     @if($setting->SchmeaORG_switch == 1)
 
     <div class="hidden"  itemscope="" itemtype="https://schema.org/LocalBusiness">
-        <span itemprop="description">@yield('meta')</span> 
+        <span itemprop="description">@yield('meta')</span>
         <a itemprop="url" href="{{route('home')}}"> </a>
         <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
         <img src="{{route('home')}}{{$setting->photo ? '/public/images/media/' . $setting->photo->file : '/public/img/200x200.png'}}" alt="logo" width="120" itemprop="url"></div>
         <span itemprop="name">{{$setting->title}}</span>
         <em><span itemprop="priceRange">{{$setting->price_range}}</span></em>
-        <div itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress"> 
-            <span itemprop="addressLocality">{{$setting->address}}</span> | 
-            <span itemprop="addressCountry">{{$setting->country}}</span> | 
-            <span itemprop="telephone">{{$setting->phone}}</span> | 
+        <div itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">{{$setting->address}}</span> |
+            <span itemprop="addressCountry">{{$setting->country}}</span> |
+            <span itemprop="telephone">{{$setting->phone}}</span> |
             <span itemprop="email">{{$setting->contact}}</span>
         </div>
-    </div> 
+    </div>
 
     @endif
 
@@ -322,7 +322,7 @@
     <script src="{{ asset('js/front/shuffleLetters.js') }} " defer></script>
     <script src="{{ asset('js/front/tilt.jquery.min.js') }} " defer></script>
     <script src="{{ asset('js/front/magnific.min.js') }}" defer></script>
-    <script src="{{ asset('js/front/venor.js') }}" defer></script>
+    <script src="{{ asset('js/front/mjacksi.js') }}" defer></script>
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Setting;
 use App\Models\Menu;
 use App\Models\Slider;
@@ -14,22 +15,21 @@ use App\Models\Pricing;
 use App\Models\PricingSetting;
 use App\Models\ContactSetting;
 use App\Models\Client;
-use App\Models\HomeSetting; 
+use App\Models\HomeSetting;
 use App\Models\AboutSetting;
 use App\Models\PortfolioSetting;
-use App\Models\ProjectCategory; 
-use App\Models\HeaderFooterSetting; 
+use App\Models\ProjectCategory;
+use App\Models\HeaderFooterSetting;
 use App\Models\BlogSetting;
 use View;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactFormRequest; 
+use App\Http\Requests\ContactFormRequest;
 use Mail;
 use Validator;
 use DB;
 
 class HomeController extends Controller
 {
-
     public function changeLanguage($lang)
     {
         session()->put('lang', $lang);
@@ -45,7 +45,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -55,11 +54,11 @@ class HomeController extends Controller
 
         $lang_id = $currentLang->id;
 
-        
-        
+
+
         $langs = Language::all();
-        
-        
+
+
 
         $data['sliders'] = Slider::where('language_id', $lang_id)->get();
         $data['menus'] = Menu::where('language_id', $lang_id)->get();
@@ -74,8 +73,7 @@ class HomeController extends Controller
         return view('home', compact('langs'), $data);
     }
     public function about()
-    {   
-
+    {
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -96,23 +94,21 @@ class HomeController extends Controller
         $data['aboutsetting'] = AboutSetting::find($lang_id);
         $data['menus'] = Menu::where('language_id', $lang_id)->get();
 
-        return view('about', $data, compact('members','clients', 'langs'));
+        return view('about', $data, compact('members', 'clients', 'langs'));
     }
 
     public function show_slug_about($slug = 'home')
     {
         $page = AboutSetting::whereSlug($slug)->first();
-        if(!empty($page)) {
+        if (!empty($page)) {
             return View::make('page')->with('page', $page);
         } else {
             abort(404);
         }
-        
     }
 
     public function portfolio()
     {
-
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -129,7 +125,7 @@ class HomeController extends Controller
         $data['projects'] = Project::where('language_id', $lang_id)->get();
         $data['portfoliosettings'] = PortfolioSetting::find($lang_id);
         $data['project_categories'] = ProjectCategory::where('language_id', $lang_id)->get();
-        
+
         return view('portfolio', $data, compact('langs'));
     }
     public function blog()
@@ -151,7 +147,7 @@ class HomeController extends Controller
 
         return view('blog', $data, compact('langs'));
     }
-    
+
     public function pricing()
     {
         if (session()->has('lang')) {
@@ -173,14 +169,13 @@ class HomeController extends Controller
         return view('pricing', $data, compact('langs'));
     }
 
-    public function contactPost(Request $request){
-
-
+    public function contactPost(Request $request)
+    {
         $messages = [
             'g-recaptcha-response.required' => 'You must check the reCAPTCHA.',
             'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
         ];
- 
+
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -189,7 +184,7 @@ class HomeController extends Controller
             'comment' => 'required',
             'g-recaptcha-response' => 'required|captcha'
         ], $messages);
- 
+
         if ($validator->fails()) {
             return back()
                         ->withErrors($validator)
@@ -199,18 +194,20 @@ class HomeController extends Controller
 
 
 
-        Mail::send('email', [
+        Mail::send(
+            'email',
+            [
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
                 'budget' => $request->get('budget'),
                 'comment' => $request->get('comment') ],
-               
-                function ($message) {
-                        $message->from('contact@lucian.host');
-                        $message->to('contact@lucian.host', 'Your Name')
-                        ->subject('Your Website Contact Form');
-        });
+            function ($message) {
+                $message->from('contact@mjacksi.com');
+                $message->to('contact@mjacksi.com', 'Your Name')
+                ->subject('Your Website Contact Form');
+            }
+        );
         return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
     }
 
@@ -237,9 +234,8 @@ class HomeController extends Controller
 
 
 
-    public function search(Request $request){
-
-
+    public function search(Request $request)
+    {
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {
@@ -258,35 +254,27 @@ class HomeController extends Controller
             ->where('language_id', $lang_id)
             ->get();
 
-        if($request->ajax()) {
-
-
+        if ($request->ajax()) {
             $projects = DB::table('projects')
             ->where('title', 'like', '%'.$request->project.'%')
             ->where('language_id', $lang_id)
             ->get();
-           
+
             $output = '';
-           
+
             if (count($projects)>0) {
                 $output = '<ul class="list-group">';
-                foreach ($projects as $row){
+                foreach ($projects as $row) {
                     $output .= '<li class="list-group-item"><a href="/project/'.$row->slug.'">'.$row->title.'</a></li>';
                 }
                 $output .= '</ul>';
-            }
-            else {
-                $output .= '<li class="list-group-item"><p>'.clean( trans('niva-backend.no_results') , array('Attr.EnableID' => true)).'</p></li>';
+            } else {
+                $output .= '<li class="list-group-item"><p>'.clean(trans('niva-backend.no_results'), array('Attr.EnableID' => true)).'</p></li>';
             }
             return $output;
         }
 
 
         return view('search', $data, compact('project_list', 'langs', 'term'));
-
     }
-
-
-
-
 }

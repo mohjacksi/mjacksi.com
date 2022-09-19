@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.niva.lucian.host'),
+    'url' => env('APP_URL', 'https://www.mjacksi.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -119,7 +119,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY','lcpsmws0dwhujtnstxrdwzibrma0ygtu'),
+    'key' => env('APP_KEY', 'lcpsmws0dwhujtnstxrdwzibrma0ygtu'),
 
     'cipher' => 'AES-256-CBC',
 

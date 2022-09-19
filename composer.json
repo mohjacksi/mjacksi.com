@@ -40,7 +40,7 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "cache-dir": "/home/lucilzud/niva.lucian.host/cache"
+        "cache-dir": "/home/lucilzud/mjacksi.com/cache"
     },
     "extra": {
         "laravel": {

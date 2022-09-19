@@ -33,7 +33,7 @@ return [
     'facebook' => [
         'client_id' => '749468792425733',
         'client_secret' => 'c2ce7f93c2a56dde7950b827091582e4',
-        'redirect' => 'https://niva.lucian.host/auth/facebook/callback',
+        'redirect' => 'https://mjacksi.com/auth/facebook/callback',
     ],
 
 

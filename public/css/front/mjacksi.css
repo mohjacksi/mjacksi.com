@@ -2,7 +2,7 @@
 
 Mohammed Jacksi
 Website URI: mjacksi.com
-Theme URI: https://niva.lucian.host/
+Theme URI: https://mjacksi.com/
 Description: Offical website
 Version: 1.0
 Author: Mohammed Jacksi

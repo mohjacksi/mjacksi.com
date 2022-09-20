@@ -7,12 +7,12 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('niva-backend.section_4_services') , array('Attr.EnableID' => true))}}</h1>
+    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('mjacksi-backend.section_4_services') , array('Attr.EnableID' => true))}}</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('niva-backend.section_4_services') , array('Attr.EnableID' => true))}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('mjacksi-backend.section_4_services') , array('Attr.EnableID' => true))}}</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -26,7 +26,7 @@
                     <div class="col-lg-6 text-right">
                         @if (!empty($langs))
                             <select name="language" class="form-control language-control" onchange="window.location='{{url()->current() . '?language='}}'+this.value">
-                                <option value="" selected disabled>{{clean( trans('niva-backend.select_language') , array('Attr.EnableID' => true))}}</option>
+                                <option value="" selected disabled>{{clean( trans('mjacksi-backend.select_language') , array('Attr.EnableID' => true))}}</option>
                                 @foreach ($langs as $lang)
                                     <option value="{{$lang->code}}" {{$lang->code == request()->input('language') ? 'selected' : ''}}>{{$lang->name}}</option>
                                 @endforeach
@@ -37,18 +37,18 @@
 
                 @if ($message = Session::get('service_success'))
                     <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>    
+                        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
                         <strong>{{ $message }}</strong>
                     </div>
                 @endif
-               
+
 
                 <form action="{{route('delete.service')}}" method="POST" class="form-inline">
                 @csrf
                 @method('DELETE')
                 <div class="form-group">
                     <select name="checkbox_array" id="" class="form-control">
-                        <option value="">{{clean( trans('niva-backend.delete') , array('Attr.EnableID' => true))}}</option>
+                        <option value="">{{clean( trans('mjacksi-backend.delete') , array('Attr.EnableID' => true))}}</option>
                     </select>
                 </div>
 
@@ -62,19 +62,19 @@
                     <thead>
                         <tr>
                             <th><input type="checkbox" id="options"></th>
-                            <th>{{clean( trans('niva-backend.photo') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.box_icon') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.title') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.description') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.box_icon') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.description') , array('Attr.EnableID' => true))}}</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th><input type="checkbox" id="options1"></th>
-                            <th>{{clean( trans('niva-backend.photo') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.box_icon') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.title') , array('Attr.EnableID' => true))}}</th>
-                            <th>{{clean( trans('niva-backend.description') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.box_icon') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</th>
+                            <th>{{clean( trans('mjacksi-backend.description') , array('Attr.EnableID' => true))}}</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -83,7 +83,7 @@
                                 <tr>
                                     <td><input class="checkboxes" type="checkbox" name="checkbox_array[]" value="{{$service->id}}"></td>
                                     <td><img height="100" src="{{$service->photo ? '/public/images/media/' . $service->photo->file : '/public/img/200x200.png'}}" alt="">
-                                    <p class="mb-0 mt-2"><a href="{{ route('service.edit', $service->id) . '?language=' . request()->input('language') }}">{{clean( trans('niva-backend.edit') , array('Attr.EnableID' => true))}}</a></p>
+                                    <p class="mb-0 mt-2"><a href="{{ route('service.edit', $service->id) . '?language=' . request()->input('language') }}">{{clean( trans('mjacksi-backend.edit') , array('Attr.EnableID' => true))}}</a></p>
                                     </td>
 
                                     <td data-label="link">{!!$service->icon!!}</td>
@@ -94,7 +94,7 @@
                         @endif
 
 
-                        
+
                     </tbody>
                 </table>
 

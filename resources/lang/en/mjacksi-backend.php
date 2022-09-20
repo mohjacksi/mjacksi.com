@@ -58,11 +58,11 @@ return [
     'create' => 'Create',
     'view_all' => 'View All',
 
-  
+
     'all_testimonials' => 'All testimonials',
     'create_testimonial' => 'Create testimonial',
     'edit_testimonial' => 'Edit testimonial',
-    
+
     'position' => 'Position',
     'facebook' => 'facebook',
     'twitter' => 'twitter',
@@ -71,7 +71,7 @@ return [
     'title' => 'Title',
     'description' => 'Description',
 
-   
+
     'create_slider' => 'Create slider',
     'all_sliders' => 'All sliders',
     'edit_slider' => 'Edit slider',
@@ -80,7 +80,7 @@ return [
     'button_text' => 'Button text',
     'button_link' => 'Button link',
 
-   
+
     'settings' => 'Settings',
     'home_settings' => 'Home Settings',
     'pricing_settings' => 'Pricing Settings',
@@ -88,7 +88,7 @@ return [
     'headerfooter_settings' => 'Header Footer settings',
     'blog_settings' => 'Blog settings',
     'about_settings' => 'About settings',
-    
+
     'enable_disable_schema' => 'Enable or disable Schema',
     'enable_disable_fb_pixel' => 'Enable or disable Facebook Pixel',
     'pixel_code' => 'Facebook Pixel code',
@@ -119,7 +119,7 @@ return [
     'section_4_services' => 'Section - Services',
     'section_5_portfolio' => 'Section - Portfolio',
     'section_6_testimonials' => 'Section - Testimonials',
-    'section_7_blog' => 'Section - Blog', 
+    'section_7_blog' => 'Section - Blog',
     'footer_typed_text_section' => 'Footer Typed text section',
     'section_clients' => 'Section Clients',
     'section_members' => 'Section Members',
@@ -229,7 +229,7 @@ return [
     'contact_address' => 'Contact address',
     'author' => 'Author',
     'enable_disable_ogg' => 'Enable or disable OGgraph',
-    'enable_disable_anali' => 'Enable or disable analytics', 
+    'enable_disable_anali' => 'Enable or disable analytics',
     'tracking_code' => 'Analytics Tracking Code',
     'enable_disable_schema' => 'Enable or disable SchemaORG',
 
@@ -260,7 +260,7 @@ return [
     'ready_leave' => 'Ready to Leave?',
 
     'view_website' => 'View website',
-    'copyright_text' => 'Copyright &copy; Sweet-Themes 2021. Please visit the documentation of this awesome project.',
+    'copyright_text' => 'Copyright &copy; MJacksi inc. 2021.',
 
     'enable_disable_whatsapp' => 'Enable or disable whatsapp sticky button',
 
@@ -287,8 +287,8 @@ return [
 
     'no_results' => 'No results',
     'search_text' => 'Try wordpress theme',
-    'you_searched_for' => 'You searched for:', 
+    'you_searched_for' => 'You searched for:',
 
 
-    'start_project_button' => 'Start project button', 
+    'start_project_button' => 'Start project button',
 ];

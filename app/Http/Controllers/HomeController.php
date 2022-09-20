@@ -269,7 +269,7 @@ class HomeController extends Controller
                 }
                 $output .= '</ul>';
             } else {
-                $output .= '<li class="list-group-item"><p>'.clean(trans('niva-backend.no_results'), array('Attr.EnableID' => true)).'</p></li>';
+                $output .= '<li class="list-group-item"><p>'.clean(trans('mjacksi-backend.no_results'), array('Attr.EnableID' => true)).'</p></li>';
             }
             return $output;
         }

@@ -6,8 +6,8 @@
 
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{$portfoliosettings->meta_title}}</h1>
        <ul class="page-list">
@@ -23,8 +23,8 @@
 
             <div class="col-md-3">
                 <div class="filters">
-                    <h4>{{clean( trans('niva-backend.sort_by') , array('Attr.EnableID' => true))}}</h4>
-                    <div class="filter active" data-filter="all"><span>{{clean( trans('niva-backend.all') , array('Attr.EnableID' => true))}}</span></div>
+                    <h4>{{clean( trans('mjacksi-backend.sort_by') , array('Attr.EnableID' => true))}}</h4>
+                    <div class="filter active" data-filter="all"><span>{{clean( trans('mjacksi-backend.all') , array('Attr.EnableID' => true))}}</span></div>
                     @foreach($project_categories as $category)
                       <div class="filter" data-filter="{{$category->name}}"><span>{{$category->name}}</span></div>
                     @endforeach
@@ -53,7 +53,7 @@
       </div>
    </div>
 
- 
+
 
 @endsection
 

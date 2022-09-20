@@ -9,20 +9,20 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('niva-backend.edit_menu') , array('Attr.EnableID' => true))}}</h1>
+    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('mjacksi-backend.edit_menu') , array('Attr.EnableID' => true))}}</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('niva-backend.edit_menu') , array('Attr.EnableID' => true))}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('mjacksi-backend.edit_menu') , array('Attr.EnableID' => true))}}</h6>
         </div>
         <div class="card-body">
 
-                <a href="{{route('menu.index') . '?language=' . request()->input('language')}}" class="btn btn-primary btn-back">{{clean( trans('niva-backend.back_menu') , array('Attr.EnableID' => true))}}</a>
+                <a href="{{route('menu.index') . '?language=' . request()->input('language')}}" class="btn btn-primary btn-back">{{clean( trans('mjacksi-backend.back_menu') , array('Attr.EnableID' => true))}}</a>
 
                 @if ($message = Session::get('menu_success'))
                     <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>    
+                        <button type="button" class="close" data-dismiss="alert">×</button>
                         <strong>{{ $message }}</strong>
                     </div>
                 @endif
@@ -44,54 +44,54 @@
 
 
                                      <div class="form-group">
-                                        <strong>{{clean( trans('niva-backend.name') , array('Attr.EnableID' => true))}}</strong>
+                                        <strong>{{clean( trans('mjacksi-backend.name') , array('Attr.EnableID' => true))}}</strong>
                                         <input type="text" name="name" class="form-control" placeholder="Name" value="{{$menu->name}}">
                                     </div>
                                     <div class="form-group">
-                                        <strong>{{clean( trans('niva-backend.link') , array('Attr.EnableID' => true))}}</strong>
+                                        <strong>{{clean( trans('mjacksi-backend.link') , array('Attr.EnableID' => true))}}</strong>
                                         <input type="text" name="link" class="form-control" placeholder="Link" value="{{$menu->link}}">
                                     </div>
 
                                     <div class="form-group">
-                                        <strong>{{clean( trans('niva-backend.on_off_submenu') , array('Attr.EnableID' => true))}}</strong>
-                                        
+                                        <strong>{{clean( trans('mjacksi-backend.on_off_submenu') , array('Attr.EnableID' => true))}}</strong>
+
                                         <div class="form-check">
-                                          <input class="form-check-input" type="radio" name="on_off_submenu" id="on_off_submenu1" value="1" 
+                                          <input class="form-check-input" type="radio" name="on_off_submenu" id="on_off_submenu1" value="1"
                                             @if($menu->on_off_submenu == 1) checked @endif>
-                                          <label class="form-check-label" for="on_off_submenu1"> {{clean( trans('niva-backend.on') , array('Attr.EnableID' => true))}}  </label>
+                                          <label class="form-check-label" for="on_off_submenu1"> {{clean( trans('mjacksi-backend.on') , array('Attr.EnableID' => true))}}  </label>
                                         </div>
 
                                         <div class="form-check">
-                                          <input class="form-check-input" type="radio" name="on_off_submenu" id="on_off_submenu0" value="0" 
+                                          <input class="form-check-input" type="radio" name="on_off_submenu" id="on_off_submenu0" value="0"
                                             @if($menu->on_off_submenu == 0) checked @endif>
-                                          <label class="form-check-label" for="on_off_submenu0"> {{clean( trans('niva-backend.off') , array('Attr.EnableID' => true))}}  </label>
-                                        </div>  
-                                        
+                                          <label class="form-check-label" for="on_off_submenu0"> {{clean( trans('mjacksi-backend.off') , array('Attr.EnableID' => true))}}  </label>
+                                        </div>
+
                                     </div>
 
                                     <div class="form-group submeniu-code @if($menu->on_off_submenu == 0) hide @endif">
-                                        <strong>{{clean( trans('niva-backend.html_submenu') , array('Attr.EnableID' => true))}}</strong>
+                                        <strong>{{clean( trans('mjacksi-backend.html_submenu') , array('Attr.EnableID' => true))}}</strong>
                                         <textarea name="submenu" class="form-control" id="submenu" rows="6">{{clean( $menu->submenu , array('Attr.EnableID' => true))}}</textarea>
                                     </div>
-                       
+
                                     <div class="form-group">
-                                        <strong>{{clean( trans('niva-backend.order') , array('Attr.EnableID' => true))}}</strong>
+                                        <strong>{{clean( trans('mjacksi-backend.order') , array('Attr.EnableID' => true))}}</strong>
                                         <input type="text" name="order" class="form-control" value="{{$menu->order}}" placeholder="Order">
                                     </div>
 
 
                                 </div>
-					   
-	                           
-                   
+
+
+
 
 					            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-					                <button type="submit" class="btn btn-primary">{{clean( trans('niva-backend.update') , array('Attr.EnableID' => true))}}</button>
+					                <button type="submit" class="btn btn-primary">{{clean( trans('mjacksi-backend.update') , array('Attr.EnableID' => true))}}</button>
 					            </div>
 					        </div>
 
 					    </form>
-                		
+
                 	</div>
                 </div>
 

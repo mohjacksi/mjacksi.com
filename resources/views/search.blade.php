@@ -8,7 +8,7 @@
 
 
    <div class="breadcrumb-area">
-       <h1 class="breadcrumb-title">{{clean( trans('niva-backend.you_searched_for') , array('Attr.EnableID' => true))}} {{$term}}</h1>
+       <h1 class="breadcrumb-title">{{clean( trans('mjacksi-backend.you_searched_for') , array('Attr.EnableID' => true))}} {{$term}}</h1>
    </div>
 
 
@@ -36,7 +36,7 @@
 	                      @endforeach
 	                @else
 					    <div>
-					        <h4 class="no-results">{{clean( trans('niva-backend.no_results') , array('Attr.EnableID' => true))}}</h4>
+					        <h4 class="no-results">{{clean( trans('mjacksi-backend.no_results') , array('Attr.EnableID' => true))}}</h4>
 					    </div>
 					@endif
 

@@ -9,20 +9,20 @@
 
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('niva-backend.edit_page') , array('Attr.EnableID' => true))}}</h1>
+    <h1 class="h3 mb-2 text-gray-800">{{clean( trans('mjacksi-backend.edit_page') , array('Attr.EnableID' => true))}}</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('niva-backend.create_page') , array('Attr.EnableID' => true))}}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{clean( trans('mjacksi-backend.create_page') , array('Attr.EnableID' => true))}}</h6>
         </div>
         <div class="card-body">
 
-                <a href="{{route('page.index') . '?language=' . request()->input('language')}}" class="btn btn-primary btn-back">{{clean( trans('niva-backend.back_pages') , array('Attr.EnableID' => true))}}</a>
+                <a href="{{route('page.index') . '?language=' . request()->input('language')}}" class="btn btn-primary btn-back">{{clean( trans('mjacksi-backend.back_pages') , array('Attr.EnableID' => true))}}</a>
 
                 @if ($message = Session::get('page_success'))
                     <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>    
+                        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
                         <strong>{{ $message }}</strong>
                     </div>
                 @endif
@@ -45,60 +45,60 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('niva-backend.title') , array('Attr.EnableID' => true))}}</strong>
+                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</strong>
                                                 <input type="text" name="title" class="form-control" placeholder="" value="{{$page->title}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('niva-backend.link') , array('Attr.EnableID' => true))}}</strong>
+                                                <strong>{{clean( trans('mjacksi-backend.link') , array('Attr.EnableID' => true))}}</strong>
                                                 <div class="slug-container"><span>{{URL::to('/')}}/</span><input type="text" name="slug" class="form-control" placeholder="" value="{{$page->slug}}"></div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <img class="img-fluid pb-4" width="100" height="100" src="{{$page->photo ? '/public/images/media/' . $page->photo->file : '/public/img/200x200.png'}}">
-                                        <p><strong>{{clean( trans('niva-backend.photo') , array('Attr.EnableID' => true))}}</strong></p>
+                                        <p><strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}}</strong></p>
                                         <input type="file"  name="photo_id" class="form-control-file"  id="photo_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <strong>{{clean( trans('niva-backend.body') , array('Attr.EnableID' => true))}}</strong>
+                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}}</strong>
                                         <textarea name="body" class="form-control" id="body" rows="5">{{clean( $page->body , array('Attr.EnableID' => true))}}</textarea>
                                     </div>
-                                    
-                                    
+
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('niva-backend.meta_title') , array('Attr.EnableID' => true))}}</strong>
+                                                <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}}</strong>
                                                 <input type="text" name="meta_title" class="form-control" placeholder="" value="{{$page->meta_title}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('niva-backend.meta_description') , array('Attr.EnableID' => true))}}</strong>
+                                                <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}}</strong>
                                                 <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$page->meta_description}}">
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
 
                                 </div>
-					   
-	                           
-                   
+
+
+
 
 					            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-					                <button type="submit" class="btn btn-primary">{{clean( trans('niva-backend.update') , array('Attr.EnableID' => true))}}</button>
+					                <button type="submit" class="btn btn-primary">{{clean( trans('mjacksi-backend.update') , array('Attr.EnableID' => true))}}</button>
 					            </div>
 					        </div>
 
 					    </form>
-                		
+
                 	</div>
                 </div>
 

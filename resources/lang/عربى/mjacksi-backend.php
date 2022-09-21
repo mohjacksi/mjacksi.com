@@ -10,9 +10,9 @@ return [
     'call_help' => 'طلب المساعدة:',
     'mail_us' => 'أرسل لنا:',
     'our_address' => 'عنواننا:',
-    
-    'no_results' => 'لا نتائج',
-    'search_text' => 'جرب موضوع ووردبريس',
+
+    'no_results' => 'لا توجد نتائج',
+    'search_text' => 'ابحث عن شيء ما..',
     'you_searched_for' => 'لقد بحثت عن:',
 
 ];

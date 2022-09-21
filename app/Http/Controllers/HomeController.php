@@ -24,6 +24,7 @@ use App\Models\BlogSetting;
 use View;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactFormRequest;
+use App\Models\Contact;
 use Mail;
 use Validator;
 use DB;
@@ -182,7 +183,7 @@ class HomeController extends Controller
             'phone' => 'required',
             'budget' => 'required',
             'comment' => 'required',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
         ], $messages);
 
         if ($validator->fails()) {
@@ -191,8 +192,7 @@ class HomeController extends Controller
                         ->withInput();
         }
 
-
-
+        Contact::create($request->all());
 
         Mail::send(
             'email',
@@ -201,13 +201,16 @@ class HomeController extends Controller
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
                 'budget' => $request->get('budget'),
-                'comment' => $request->get('comment') ],
+                'comment' => $request->get('comment')
+            ],
             function ($message) {
                 $message->from('contact@mjacksi.com');
                 $message->to('contact@mjacksi.com', 'Your Name')
                 ->subject('Your Website Contact Form');
             }
         );
+
+
         return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
     }
 

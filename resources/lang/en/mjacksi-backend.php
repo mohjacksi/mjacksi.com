@@ -286,7 +286,7 @@ return [
     'typed_text' => 'Typed text',
 
     'no_results' => 'No results',
-    'search_text' => 'Try wordpress theme',
+    'search_text' => 'Search for something..',
     'you_searched_for' => 'You searched for:',
 
 

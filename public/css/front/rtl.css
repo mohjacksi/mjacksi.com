@@ -121,3 +121,8 @@
 .rtl .page-content {
     text-align: right;
 }
+
+.rtl h4.heading
+{
+    text-align: right;
+}

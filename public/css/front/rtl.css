@@ -132,5 +132,14 @@
     text-align: right;
 }
 
+.rtl h4.parent-typed-text
+{
+    text-align: right;
+}
+
+.blog-page-section .post-category-comment-date span i{
+    margin-left: 8px;
+}
+
 
 

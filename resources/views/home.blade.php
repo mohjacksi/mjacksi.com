@@ -139,7 +139,7 @@
         </div>
     </div>
 
-     <div class="portfolio-section">
+     {{-- <div class="portfolio-section">
         <div class="container">
             <h4>{{$homesetting->projects_subtitle}}</h4>
             <h3>{!!$homesetting->projects_title!!}</h3>
@@ -182,7 +182,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
      <div class="fun-facts-section" id="fun-facts">
         <div class="container">

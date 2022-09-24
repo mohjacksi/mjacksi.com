@@ -56,7 +56,10 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.description') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="description" class="form-control" value="{{$service->description}}">
+                                                {{-- <input type="text" name="description" class="form-control" value="{{$service->description}}"> --}}
+                                                <textarea name="description" class="form-control">
+                                                    {{$service->description}}
+                                                </textarea>
                                             </div>
                                         </div>
                                     </div>

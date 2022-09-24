@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <div class="testimonial-section">
+    {{-- <div class="testimonial-section">
 
         <div class="testimonial-section-slider owl-carousel">
 
@@ -97,7 +97,7 @@
 
         </div>
 
-    </div>
+    </div> --}}
 
 
     <div class="clients-section">

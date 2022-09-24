@@ -14,7 +14,7 @@ class AddSoftDeleteToLanguagesTable extends Migration
     public function up()
     {
         Schema::table('languages', function (Blueprint $table) {
-            //
+            $table->dropSoftDeletes();
         });
     }
 
@@ -26,7 +26,7 @@ class AddSoftDeleteToLanguagesTable extends Migration
     public function down()
     {
         Schema::table('languages', function (Blueprint $table) {
-            //
+            $table->dropSoftDeletes();
         });
     }
 }

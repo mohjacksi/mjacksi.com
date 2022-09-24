@@ -2586,7 +2586,7 @@ h3.blog-section-subtitle::before {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background-color: #6164ff;
+    background-color: #38BE4A;
     -webkit-border-radius: 50%;
     border-radius: 50%;
     margin: 10px 0 10px 10px;
@@ -2607,7 +2607,7 @@ h3.blog-section-subtitle::before {
     display: block;
     height: 70px;
     width: 70px;
-    background: rgb(97 100 255 / 40%);
+    background: rgb(25 145 19 / 40%);
     z-index: -1;
     -webkit-border-radius: 50%;
     border-radius: 50%;

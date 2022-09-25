@@ -3215,6 +3215,8 @@ a.popup-vimeo-video:hover {
     opacity: .7;
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
+    height: 150px;
+    width: auto;
 }
 
 .clients-section img:hover {

@@ -182,7 +182,7 @@ Author: Mohammed Jacksi
 
         /* TESTIMONIAL */
         $('body:not(.rtl) .testimonial-section-slider').owlCarousel({
-            loop: true,
+            loop: false,
             autoplay: false,
             smartSpeed: 500,
             autoplayTimeout: 4000,
@@ -206,7 +206,7 @@ Author: Mohammed Jacksi
 
         $('.rtl .testimonial-section-slider').owlCarousel({
             rtl: true,
-            loop: true,
+            loop: false,
             autoplay: true,
             smartSpeed: 500,
             autoplayTimeout: 4000,

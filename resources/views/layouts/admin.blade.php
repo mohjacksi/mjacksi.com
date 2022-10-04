@@ -31,7 +31,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fab fa-github"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">mjacksi<sup>v2.0</sup></div>
+                <div class="sidebar-brand-text mx-3">mjacksi<sup>v1.0</sup></div>
             </a>
 
             <!-- Divider -->
@@ -48,7 +48,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            @php $lang = App\Models\Language::find(1); @endphp
+            @php $lang = App\Models\Language::find(3); @endphp
 
             @if(Auth::user()->role->name == 'administrator')
             <!-- Nav Item - Pages Collapse Menu -->

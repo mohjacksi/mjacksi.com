@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Actions\Fortify;
-//
+// after
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

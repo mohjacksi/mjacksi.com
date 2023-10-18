@@ -79,6 +79,8 @@ return [
     'heading_2' => 'Heading 2',
     'button_text' => 'Button text',
     'button_link' => 'Button link',
+    'ios_link' => 'App Store Link',
+    'android_link' => 'Google Play Link',
 
 
     'settings' => 'Settings',

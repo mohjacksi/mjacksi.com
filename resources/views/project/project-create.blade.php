@@ -169,6 +169,18 @@
                                                 <input type="text" name="button_link" class="form-control" placeholder="">
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <strong>{{clean( trans('mjacksi-backend.ios_link') , array('Attr.EnableID' => true))}}</strong>
+                                                <input type="text" name="ios_link" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <strong>{{clean( trans('mjacksi-backend.android_link') , array('Attr.EnableID' => true))}}</strong>
+                                                <input type="text" name="android_link" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
                                     </div>
 
                                      <div class="row">

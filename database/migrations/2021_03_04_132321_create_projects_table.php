@@ -30,6 +30,8 @@ class CreateProjectsTable extends Migration
             $table->text('client')->nullable();
             $table->text('button_text')->nullable();
             $table->text('button_link')->nullable();
+            $table->text('ios_link')->nullable();
+            $table->text('android_link')->nullable();
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->timestamps();

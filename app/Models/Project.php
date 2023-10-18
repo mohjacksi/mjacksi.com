@@ -27,6 +27,8 @@ class Project extends Model
         'client',
         'button_text',
         'button_link',
+        'ios_link',
+        'android_link',
     ];
 
     public function user() {

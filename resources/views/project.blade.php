@@ -23,7 +23,7 @@
 			        {!!$project->body!!}
 				</div>
 			    <div class="col-md-4">
-			        <h4 class="post-name">Info </h4>
+			        <h4 class="post-name"> {{trans('front.info')}} </h4>
 			        <span class="mjacksi-animate-border"></span>
 
 			        <p><strong>{{$project->date}}</strong></p>

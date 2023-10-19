@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -41,9 +42,11 @@ class ProjectController extends Controller
         $langs = Language::all();
         $lang = Language::where('code', $request->language)->first();
         $lang_id = $lang->id;
-
-        $categories = DB::select('select * from project_categories where language_id='.$lang_id);
-        return view('project.project-create', compact('categories', 'langs', 'lang_id'));
+        $lang_ar=Language::where('code','ar')->first()->id;
+        $lang_en=Language::where('code','en')->first()->id;
+        $categories_ar = DB::select('select * from project_categories where language_id='.$lang_ar);
+        $categories_en = DB::select('select * from project_categories where language_id='.$lang_en);
+        return view('project.project-create', compact('categories_ar','categories_en', 'langs', 'lang_id'));
     }
 
     /**
@@ -57,8 +60,8 @@ class ProjectController extends Controller
 
 
         $input = $request->all();
-        $user = Auth::user();
 
+        $user = Auth::user();
         if ($file = $request->file('photo_id')) {
             
             $name = time() . $file->getClientOriginalName();
@@ -69,7 +72,15 @@ class ProjectController extends Controller
 
             $input['photo_id'] = $photo->id;
         }
-
+        $input['language_id']=Language::where('code','en')->first()->id;
+        $input['title']=$input['title_en'];
+        $input['body']=$input['body_en'];
+        $input['project_category_id']=$input['project_category_id_en'];
+        $user->projects()->create($input);
+        $input['language_id']=Language::where('code','ar')->first()->id;
+        $input['title']=$input['title_ar'];
+        $input['body']=$input['body_ar'];
+        $input['project_category_id']=$input['project_category_id_ar'];
         $user->projects()->create($input);
 
         return back()->with('project_success','Project created successfully!');

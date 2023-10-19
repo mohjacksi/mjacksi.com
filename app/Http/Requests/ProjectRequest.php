@@ -25,10 +25,14 @@ class ProjectRequest extends FormRequest
     {
         return [
             'photo_id'=> 'required',
-            'title'=> 'required',
+            'title_ar'=> 'required',
+            'project_category_id_en'=> 'required',
+            'project_category_id_ar'=> 'required',
+            'title_en'=> 'required',
             'slug'=> 'required',
             'slug'=> 'unique:projects,slug,{$projectId}|required',
-            'body'=> 'required',
+            'body_ar'=> 'required',
+            'body_en'=> 'required',
             'meta_title'=> 'required',
             'meta_description'=> 'required',
         ];

@@ -67,10 +67,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="title" class="form-control" placeholder="">
+
+                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}} English</strong>
+                                                <input type="text" name="title_en" class="form-control" placeholder="">
                                             </div>
                                         </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                                <input type="text" name="title_ar" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.link') , array('Attr.EnableID' => true))}}</strong>
@@ -95,20 +104,39 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="row">
+                                        <div class="col-md-6">
                                     <div class="form-group">
-                                        <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}}</strong>
-                                        <select name="project_category_id" id="project_category_id" class="form-control">
+                                        <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}} English</strong>
+                                        <select required name="project_category_id_en" id="project_category_id" class="form-control">
                                             <option>{{clean( trans('mjacksi-backend.choose_category') , array('Attr.EnableID' => true))}}</option>
-                                            @foreach($categories as $category)
+                                            @foreach($categories_en as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                        <select required name="project_category_id_ar" id="project_category_id" class="form-control">
+                                            <option>{{clean( trans('mjacksi-backend.choose_category') , array('Attr.EnableID' => true))}}</option>
+                                            @foreach($categories_ar as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
-                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}}</strong>
-                                        <textarea name="body" class="form-control" id="body" rows="5"></textarea>
+                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} English</strong>
+                                        <textarea name="body_en" class="form-control" id="body" rows="5"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                        <textarea name="body_ar" class="form-control" id="body" rows="5"></textarea>
                                     </div>
 
                                     <div class="row">

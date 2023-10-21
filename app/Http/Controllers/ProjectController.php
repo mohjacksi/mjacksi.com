@@ -93,14 +93,36 @@ class ProjectController extends Controller
 
 
 
-    public function edit(Project $project, Request $request)
+    public function edit(Request $request,$id)
     {
 
-        $lang = Language::where('code', $request->language)->first();
-        $lang_id = $lang->id;
+        $lang_en = Language::where('code', 'en')->first();
+        $lang_ar = Language::where('code', 'ar')->first();
 
-        $categories = DB::select('select * from project_categories where language_id='.$lang_id);
-        return view('project.project-edit', compact('project', 'categories'));
+        $project=Project::findOrFail($id);
+
+        if ($project->language_id == $lang_en->id){
+
+         $project_en=$project;
+
+         $project_ar=Project::where('language_id',$lang_ar->id)->where('slug',$project->slug)->first();
+
+        }else{
+            $project_ar=$project;
+            $project_en=Project::where('language_id',$lang_en->id)->where('slug',$project->slug)->first();
+
+        }
+
+        $categories_ar = DB::select('select * from project_categories where language_id='.$lang_ar->id);
+        $categories_en = DB::select('select * from project_categories where language_id='.$lang_en->id);
+        if ($project_ar==null){
+
+            $project_ar=$project_en;
+        }elseif ($project_en==null){
+
+            $project_en=$project_ar;
+        }
+        return view('project.project-edit', compact('project_ar','project_en', 'categories_ar','categories_en'));
     }
     /**
      * Update the specified resource in storage.
@@ -138,6 +160,7 @@ class ProjectController extends Controller
         if(isset($request->delete_all) && !empty($request->checkbox_array)) {
             $projects = Project::findOrFail($request->checkbox_array);
             foreach ($projects as $project) {
+                $pro=Project::where('slug',$project->slug)->delete();
                 $project->delete();
             }
             return back()->with('projects_success','Project/s deleted successfully!');
@@ -147,6 +170,7 @@ class ProjectController extends Controller
 
         $projects = Project::findOrFail($request->checkbox_array);
         foreach ($projects as $project) {
+            $pro=Project::where('slug',$project->slug)->delete();
             $project->delete();
         }
 

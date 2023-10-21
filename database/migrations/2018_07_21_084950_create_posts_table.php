@@ -17,7 +17,8 @@ class CreatePostsTable extends Migration
 
             $table->increments('id');
             $table->string('locale')->index();
-            $table->unique(['post_id', 'locale']);
+            $table->integer('post_id');
+            $table->unique('locale');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
             $table->integer('photo_id')->unsigned()->index();
@@ -29,7 +30,7 @@ class CreatePostsTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 
         });

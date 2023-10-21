@@ -34,7 +34,7 @@
 
                 	<div class="col-md-12">
 
-                		<form action="{{route('project.update', $project->id)}}" method="POST" enctype="multipart/form-data">
+                		<form action="{{route('project.update', $project_en->id)}}" method="POST" enctype="multipart/form-data">
 					        @csrf
 					        @method('PUT')
 
@@ -45,23 +45,31 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="title" class="form-control" placeholder="" value="{{$project->title}}">
+                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}} English</strong>
+                                                <input type="text" name="title_en" class="form-control" placeholder="" value="{{$project_en->title}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.link') , array('Attr.EnableID' => true))}}</strong>
-                                                <div class="slug-container"><span>{{URL::to('/')}}/{{clean( trans('mjacksi-backend.project') , array('Attr.EnableID' => true))}}/</span><input type="text" name="slug" class="form-control" placeholder="" value="{{$project->slug}}"></div>
+                                                <strong>{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                                <input type="text" name="title_ar" class="form-control" placeholder="" value="{{$project_ar->title}}">
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
+                                     <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <strong>{{clean( trans('mjacksi-backend.link') , array('Attr.EnableID' => true))}}</strong>
+                                             <div class="slug-container"><span>{{URL::to('/')}}/{{clean( trans('mjacksi-backend.project') , array('Attr.EnableID' => true))}}/</span><input type="text" name="slug" class="form-control" placeholder="" value="{{$project_en->slug}}"></div>
+                                         </div>
+                                     </div>
+                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <img class="img-fluid pb-4" width="100" height="100" src="{{$project->photo ? '/public/images/media/' . $project->photo->file : '/public/img/200x200.png'}}">
+                                                <img class="img-fluid pb-4" width="100" height="100" src="{{$project_en->photo ? '/public/images/media/' . $project_en->photo->file : '/public/img/200x200.png'}}">
                                                 <p><strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}}</strong></p>
                                                 <input type="file"  name="photo_id" class="form-control-file"  id="photo_id">
                                             </div>
@@ -69,86 +77,71 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}} <span>{{clean( trans('mjacksi-backend.upload_image') , array('Attr.EnableID' => true))}} <a target="_blank" href="{{route('media.create')}}"> {{clean( trans('mjacksi-backend.here') , array('Attr.EnableID' => true))}} </a> {{clean( trans('mjacksi-backend.then_copy_url') , array('Attr.EnableID' => true))}} <a target="_blank" href="{{route('media.index')}}"> {{clean( trans('mjacksi-backend.here') , array('Attr.EnableID' => true))}} </a></span></strong>
-                                                <input type="text" name="image_featured2" class="form-control" placeholder="" value="{{$project->image_featured2}}">
+                                                <input type="text" name="image_featured2" class="form-control" placeholder="" value="{{$project_en->image_featured2}}">
                                             </div>
                                         </div>
                                     </div>
-
-
+                                     <div class="row">
+                                         <div class="col-md-6">
                                     <div class="form-group">
-                                        <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}}</strong>
-                                        <select name="project_category_id" id="project_category_id" class="form-control">
-                                            @foreach($categories as $category)
-                                                <option @if($project->project_category_id == $category->id) { selected="selected" } @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}} English</strong>
+                                        <select name="project_category_id_en" id="project_category_id" class="form-control">
+                                            @foreach($categories_en as $category)
+                                                <option @if($project_en->project_category_id == $category->id) { selected="selected" } @endif value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                         </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group">
+                                                 <strong>{{clean( trans('mjacksi-backend.categories') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                                 <select name="project_category_id_ar" id="project_category_id_ar" class="form-control">
+                                                     @foreach($categories_ar as $category)
+                                                         <option @if($project_en->project_category_id == $category->id) { selected="selected" } @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                                     @endforeach
+                                                 </select>
+                                             </div>
+                                         </div>
+                                     </div>
 
                                     <div class="form-group">
-                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}}</strong>
-                                        <textarea name="body" class="form-control" id="body" rows="25">{{clean( $project->body , array('Attr.EnableID' => true))}}</textarea>
+                                        <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} English</strong>
+                                        <textarea name="body" class="form-control" id="body" rows="25">{{clean( $project_en->body , array('Attr.EnableID' => true))}}</textarea>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}} 1</strong>
-                                                 <img class="img-fluid pb-4" width="100" height="100" src="{{$project->img_gal1 ? $project->img_gal1 : '/public/img/200x200.png'}}">
-                                                <input type="text" name="img_gal1" class="form-control" placeholder="" value="{{$project->img_gal1}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}} 2</strong>
-                                                 <img class="img-fluid pb-4" width="100" height="100" src="{{$project->img_gal2 ? $project->img_gal2 : '/public/img/200x200.png'}}">
-                                                <input type="text" name="img_gal2" class="form-control" placeholder="" value="{{$project->img_gal2}}">
-                                            </div>
-                                        </div>
-                                    </div>
+                                     <div class="form-group">
+                                         <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                         <textarea name="body" class="form-control" id="body" rows="25">{{clean( $project_ar->body , array('Attr.EnableID' => true))}}</textarea>
+                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}} 3</strong>
-                                                 <img class="img-fluid pb-4" width="100" height="100" src="{{$project->img_gal3 ? $project->img_gal3 : '/public/img/200x200.png'}}">
-                                                <input type="text" name="img_gal3" class="form-control" placeholder="" value="{{$project->img_gal3}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.photo') , array('Attr.EnableID' => true))}} 4</strong>
-                                                 <img class="img-fluid pb-4" width="100" height="100" src="{{$project->img_gal4 ? $project->img_gal4 : '/public/img/200x200.png'}}">
-                                                <input type="text" name="img_gal4" class="form-control" placeholder="" value="{{$project->img_gal4}}">
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.duration_project') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="date" class="form-control" placeholder="" value="{{$project->date}}">
+                                                <input type="text" name="date" class="form-control" placeholder="" value="{{$project_en->date}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.client') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="client" class="form-control" placeholder="" value="{{$project->client}}">
+                                                <input type="text" name="client" class="form-control" placeholder="" value="{{$project_en->client}}">
                                             </div>
                                         </div>
                                     </div>
+
 
                                      <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.button_text') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="button_text" class="form-control" placeholder="" value="{{$project->button_text}}">
+                                                <input type="text" name="button_text" class="form-control" placeholder="" value="{{$project_en->button_text}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <strong>{{clean( trans('mjacksi-backend.button_link') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="button_link" class="form-control" placeholder="" value="{{$project->button_link}}">
+                                                <input type="text" name="button_link" class="form-control" placeholder="" value="{{$project_en->button_link}}">
                                             </div>
                                         </div>
                                     </div>
@@ -156,20 +149,37 @@
                                      <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="meta_title" class="form-control" placeholder="" value="{{$project->meta_title}}">
+                                                <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}} English</strong>
+                                                <input type="text" name="meta_title_en" class="form-control" placeholder="" value="{{$project_en->meta_title}}">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$project->meta_description}}">
-                                            </div>
-                                        </div>
+
+                                         <div class="col-md-6">
+                                             <div class="form-group">
+                                                 <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                                 <input type="text" name="meta_title_ar" class="form-control" placeholder="" value="{{$project_ar->meta_title}}">
+                                             </div>
+                                         </div>
+
                                     </div>
 
-                                </div>
 
+
+
+                                <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} English</strong>
+                                        <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$project_en->meta_description}}">
+                                    </div>
+                                </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} Arabic </strong>
+                                            <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$project_ar->meta_description}}">
+                                        </div>
+                                    </div>
+                                </div>
 
 
 

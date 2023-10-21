@@ -76,11 +76,16 @@ class ProjectController extends Controller
         $input['title']=$input['title_en'];
         $input['body']=$input['body_en'];
         $input['project_category_id']=$input['project_category_id_en'];
+        $input['meta_title']=$input['meta_title_en'];
+        $input['meta_description']=$input['meta_description_en'];
+
         $user->projects()->create($input);
         $input['language_id']=Language::where('code','ar')->first()->id;
         $input['title']=$input['title_ar'];
         $input['body']=$input['body_ar'];
         $input['project_category_id']=$input['project_category_id_ar'];
+        $input['meta_title']=$input['meta_title_ar'];
+        $input['meta_description']=$input['meta_description_ar'];
         $user->projects()->create($input);
 
         return back()->with('project_success','Project created successfully!');
@@ -151,7 +156,7 @@ class ProjectController extends Controller
 
     // Show a project by slug
     public function show_slug($slug = 'home')
-    {   
+    {
 
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
@@ -175,7 +180,7 @@ class ProjectController extends Controller
         } else {
             abort(404);
         }
-        
+
     }
 
 

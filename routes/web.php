@@ -170,11 +170,6 @@ Route::middleware(['admin'])->group(function () {
 
 
 
-
-
-
-
-
 Route::middleware(['XSS'])->group(function () {
     Route::get('/post/{slug}',  [PostController::class, 'show_slug']);
     Route::get('/project/{slug}',  [ProjectController::class, 'show_slug']);

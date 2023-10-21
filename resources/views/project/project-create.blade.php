@@ -214,14 +214,28 @@
                                      <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="meta_title" class="form-control" placeholder="">
+                                                <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}} English</strong>
+                                                <input type="text" name="meta_title_en" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                         <div class="col-md-6">
+                                             <div class="form-group">
+                                                 <strong>{{clean( trans('mjacksi-backend.meta_title'), array('Attr.EnableID' => true))}} Arabic</strong>
+                                                 <input type="text" name="meta_title_ar" class="form-control" placeholder="">
+                                             </div>
+                                         </div>
+                                     </div>
+                                         <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} English</strong>
+                                                <input type="text" name="meta_description_en" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}}</strong>
-                                                <input type="text" name="meta_description" class="form-control" placeholder="">
+                                                <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} Arabic</strong>
+                                                <input type="text" name="meta_description_ar" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                     </div>

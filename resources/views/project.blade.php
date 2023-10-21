@@ -23,7 +23,11 @@
 			        {!!$project->body!!}
 				</div>
 			    <div class="col-md-4">
-			        <h4 class="post-name"> {{trans('front.info')}} </h4>
+					@if($currentLang->code=='ar')
+			        <h4 class="post-name"> معلومات </h4>
+					@else
+						<h4 class="post-name"> {{trans('front.info')}} </h4>
+				   	@endif
 			        <span class="mjacksi-animate-border"></span>
 
 			        <p><strong>{{$project->date}}</strong></p>

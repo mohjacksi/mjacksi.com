@@ -61,6 +61,7 @@ class ProjectController extends Controller
 
         $input = $request->all();
 
+
         $user = Auth::user();
         if ($file = $request->file('photo_id')) {
             
@@ -72,20 +73,38 @@ class ProjectController extends Controller
 
             $input['photo_id'] = $photo->id;
         }
+
+        if ($file = $request->file('photos')) {
+            foreach($request->photos as $photo){
+                $name = time() . $photo->getClientOriginalName();
+
+                $photo->move('images/media/', $name);
+
+                $image = Photo::create(['file'=>$name]);
+
+                $uploadedImages[]  = $image->id;
+            }
+            $project_imgs = implode('|', $uploadedImages);
+        }else{
+            $project_imgs = null;
+        }
+
         $input['language_id']=Language::where('code','en')->first()->id;
         $input['title']=$input['title_en'];
         $input['body']=$input['body_en'];
         $input['project_category_id']=$input['project_category_id_en'];
         $input['meta_title']=$input['meta_title_en'];
         $input['meta_description']=$input['meta_description_en'];
-
+        $input['img_gal1']=$project_imgs;
         $user->projects()->create($input);
+
         $input['language_id']=Language::where('code','ar')->first()->id;
         $input['title']=$input['title_ar'];
         $input['body']=$input['body_ar'];
         $input['project_category_id']=$input['project_category_id_ar'];
         $input['meta_title']=$input['meta_title_ar'];
         $input['meta_description']=$input['meta_description_ar'];
+        $input['img_gal1']=$project_imgs;
         $user->projects()->create($input);
 
         return back()->with('project_success','Project created successfully!');
@@ -131,12 +150,12 @@ class ProjectController extends Controller
      * @param  \App\Models\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(ProjectEditRequest $request, Project $project)
+    public function update(ProjectEditRequest $request)
     {
-        
-        $input = $request->all();
-        
 
+        $input = $request->all();
+
+        $project_en=Project::findOrFail($request->project_en);
         if ($file = $request->file('photo_id')) {
             
             $name = time() . $file->getClientOriginalName();
@@ -148,8 +167,35 @@ class ProjectController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+        if ($file = $request->file('photos')) {
+            foreach($request->photos as $photo){
+                $name = time() . $photo->getClientOriginalName();
 
-        $project->update($input);
+                $photo->move('images/media/', $name);
+
+                $image = Photo::create(['file'=>$name]);
+
+                $uploadedImages[]  = $image->id;
+            }
+            $project_imgs = implode('|', $uploadedImages);
+            $input['img_gal1']=$project_imgs;
+        }
+        $input['language_id']=Language::where('code','en')->first()->id;
+        $input['title']=$input['title_en'];
+        $input['body']=$input['body_en'];
+        $input['project_category_id']=$input['project_category_id_en'];
+        $input['meta_title']=$input['meta_title_en'];
+        $input['meta_description']=$input['meta_description_en'];
+        $project_en->update($input);
+
+        $project_ar=Project::findOrFail($request->project_ar);
+        $input['language_id']=Language::where('code','ar')->first()->id;
+        $input['title']=$input['title_ar'];
+        $input['body']=$input['body_ar'];
+        $input['project_category_id']=$input['project_category_id_ar'];
+        $input['meta_title']=$input['meta_title_ar'];
+        $input['meta_description']=$input['meta_description_ar'];
+        $project_ar->update($input);
 
         return back()->with('project_success','Project updated successfully!');
     }
@@ -167,7 +213,6 @@ class ProjectController extends Controller
         } else {
             return back();
         }
-
         $projects = Project::findOrFail($request->checkbox_array);
         foreach ($projects as $project) {
             $pro=Project::where('slug',$project->slug)->delete();

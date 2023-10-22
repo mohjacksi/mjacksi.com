@@ -24,12 +24,15 @@ class ProjectEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=> 'required',
+            'title_ar'=> 'required',
+            'title_en'=> 'required',
             'slug'=> 'required',
-            'slug'=> 'required',
-            'body'=> 'required',
-            'meta_title'=> 'required',
-            'meta_description'=> 'required',
+            'body_ar'=> 'required',
+            'body_en'=> 'required',
+            'meta_title_ar'=> 'required',
+            'meta_title_en'=> 'required',
+            'meta_description_ar'=> 'required',
+            'meta_description_en'=> 'required',
         ];
     }
 }

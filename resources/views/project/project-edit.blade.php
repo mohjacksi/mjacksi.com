@@ -37,6 +37,8 @@
                 		<form action="{{route('project.update', $project_en->id)}}" method="POST" enctype="multipart/form-data">
 					        @csrf
 					        @method('PUT')
+                            <input type="hidden" name="project_en" value="{{$project_en->id}}">
+                            <input type="hidden" name="project_ar" value="{{$project_ar->id}}">
 
 					        <div class="row">
 
@@ -81,6 +83,25 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+                                         <div class="form-group">
+
+                                             @if(!empty($project_en->img_gal1))
+
+                                                 @php       $images    = explode('|',$project_en->img_gal1);          @endphp
+                                              @foreach($images as $image)
+                                             <img class="img-fluid pb-4" width="100" height="100" src="{{'/public/images/media/' . @\App\Models\Photo::where('id',$image)->first()->file}}">
+                                              @endforeach
+                                             @endif
+                                             <p><strong>{{clean( trans('mjacksi-backend.photos') , array('Attr.EnableID' => true))}}</strong></p>
+                                             <input type="file"  name="photos[]" multiple class="form-control-file"  id="photos">
+                                         </div>
+
+
+
                                      <div class="row">
                                          <div class="col-md-6">
                                     <div class="form-group">
@@ -106,12 +127,12 @@
 
                                     <div class="form-group">
                                         <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} English</strong>
-                                        <textarea name="body" class="form-control" id="body" rows="25">{{clean( $project_en->body , array('Attr.EnableID' => true))}}</textarea>
+                                        <textarea name="body_en" class="form-control" id="body" rows="25">{{clean( $project_en->body , array('Attr.EnableID' => true))}}</textarea>
                                     </div>
 
                                      <div class="form-group">
                                          <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} Arabic</strong>
-                                         <textarea name="body" class="form-control" id="body" rows="25">{{clean( $project_ar->body , array('Attr.EnableID' => true))}}</textarea>
+                                         <textarea name="body_ar" class="form-control" id="body" rows="25">{{clean( $project_ar->body , array('Attr.EnableID' => true))}}</textarea>
                                      </div>
 
 
@@ -157,12 +178,26 @@
                                          <div class="col-md-6">
                                              <div class="form-group">
                                                  <strong>{{clean( trans('mjacksi-backend.meta_title') , array('Attr.EnableID' => true))}} Arabic</strong>
-                                                 <input type="text" name="meta_title_ar" class="form-control" placeholder="" value="{{$project_ar->meta_title}}">
+                                                 <input type="text" name="meta_title_ar"  class="form-control" placeholder="" value="{{$project_ar->meta_title}}">
                                              </div>
                                          </div>
 
                                     </div>
 
+                                     <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <strong>{{clean( trans('mjacksi-backend.ios_link') , array('Attr.EnableID' => true))}}</strong>
+                                             <input type="text" name="ios_link" class="form-control" value="{{$project_en->ios_link}}" placeholder="">
+                                         </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <strong>{{clean( trans('mjacksi-backend.android_link') , array('Attr.EnableID' => true))}}</strong>
+                                             <input type="text" name="android_link" class="form-control" value="{{$project_en->android_link}}" placeholder="">
+                                         </div>
+                                     </div>
+                                     </div>
 
 
 
@@ -170,13 +205,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} English</strong>
-                                        <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$project_en->meta_description}}">
+                                        <input type="text" name="meta_description_en" class="form-control" placeholder="" value="{{$project_en->meta_description}}">
                                     </div>
                                 </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <strong>{{clean( trans('mjacksi-backend.meta_description') , array('Attr.EnableID' => true))}} Arabic </strong>
-                                            <input type="text" name="meta_description" class="form-control" placeholder="" value="{{$project_ar->meta_description}}">
+                                            <input type="text" name="meta_description_ar" class="form-control" placeholder="" value="{{$project_ar->meta_description}}">
                                         </div>
                                     </div>
                                 </div>

@@ -38,6 +38,7 @@ return [
     'all_categories' => 'All Categories',
     'choose_category' => 'Choose Category',
     'body' => 'Body',
+    'photos' => 'photos',
     'project' => 'Project',
     'projects' => 'Projects',
     'link' => 'Link',

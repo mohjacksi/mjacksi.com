@@ -47,14 +47,20 @@
 			<div class="gallery">
 				<div class="row">
 
+				    @if(!empty($project->img_gal1))
+						@php       $images    = explode('|',$project->img_gal1);          @endphp
+						@foreach($images as $image)
 					<div class="col-md-12">
 						<div class="featured-image">
-							<a href="{{$project->img_gal1}}">
-								<img class="img-fluid lazy" src="/public/img/loading-blog.gif" data-src="{{$project->img_gal1}}">
+							<a href="{{'/public/images/media/' . @\App\Models\Photo::where('id',$image)->first()->file}}">
+								<img class="img-fluid lazy" src="/public/img/loading-blog.gif" data-src="{{'/public/images/media/' . @\App\Models\Photo::where('id',$image)->first()->file}}">
 							</a>
 						</div>
 					</div>
+						@endforeach
+					@endif
 
+					<!--
 					<div class="col-md-12">
 						<div class="featured-image">
 							<a href="{{$project->img_gal2}}">
@@ -77,7 +83,7 @@
 								<img class="img-fluid lazy" src="/public/img/loading-blog.gif" data-src="{{$project->img_gal4}}">
 							</a>
 						</div>
-					</div>
+					</div>-->
 
 				</div>
 

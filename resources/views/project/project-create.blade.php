@@ -104,6 +104,11 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <strong>{{clean( trans('mjacksi-backend.photos') , array('Attr.EnableID' => true))}}</strong>
+                                        <input type="file"  multiple name="photos[]" class="form-control-file"  id="photo_id">
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                     <div class="form-group">
@@ -138,7 +143,7 @@
                                         <strong>{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}} Arabic</strong>
                                         <textarea name="body_ar" class="form-control" id="body" rows="5"></textarea>
                                     </div>
-
+                                <!----
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -167,7 +172,7 @@
                                                 <input type="text" name="img_gal4" class="form-control" placeholder="">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--->
 
                                     <div class="row">
                                         <div class="col-md-6">

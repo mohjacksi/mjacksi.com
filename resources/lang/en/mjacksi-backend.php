@@ -21,6 +21,7 @@ return [
     'back_clients_page' => 'Back to Clients page',
 
     'all' => 'All',
+    'Duplicate' => 'Duplicate',
     'sort_by' => 'Sort by',
     'all_users' => 'All users',
     'users' => 'Users',

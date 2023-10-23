@@ -14,6 +14,7 @@ class Project extends Model
         'project_category_id',
         'photo_id',
         'title',
+        'user_id',
         'slug',
         'body',
         'meta_title',

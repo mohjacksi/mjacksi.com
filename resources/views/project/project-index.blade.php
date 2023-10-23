@@ -48,9 +48,16 @@
                 @csrf
                 @method('DELETE')
                 <div class="form-group">
-                    <select name="checkbox_array" id="" class="form-control">
-                        <option value="">{{clean( trans('mjacksi-backend.delete') , array('Attr.EnableID' => true))}}</option>
+                    <select name="delete_select" id="" class="form-control">
+                        <option value=""></option>
+                        <option value="delete">{{clean( trans('mjacksi-backend.delete') , array('Attr.EnableID' => true))}}</option>
                     </select>
+                </div>
+               <div class="form-group">
+                        <select name="checkbox_array_duplicate" id=""  class="form-control">
+                            <option value=""></option>
+                            <option value="duplicate">{{clean( trans('mjacksi-backend.Duplicate') , array('Attr.EnableID' => true))}}</option>
+                        </select>
                 </div>
 
                 <div class="form-group">

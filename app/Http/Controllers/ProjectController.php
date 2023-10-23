@@ -202,23 +202,53 @@ class ProjectController extends Controller
 
     public function delete_project(Request $request, Project $project) {
 
+       if ($request->checkbox_array_duplicate != null && $request->delete_select != null){
 
-        if(isset($request->delete_all) && !empty($request->checkbox_array)) {
-            $projects = Project::findOrFail($request->checkbox_array);
-            foreach ($projects as $project) {
-                $pro=Project::where('slug',$project->slug)->delete();
-                $project->delete();
+          return redirect()->back()->with(['error'=>'you should select one value']);
+       }
+
+       if ($request->checkbox_array_duplicate != null){
+           if ($request->checkbox_array==null){
+
+               return back();
+           }
+           $projects = Project::findOrFail($request->checkbox_array);
+           $lang_ar=Language::where('code','ar')->first();
+           $lang_en=Language::where('code','en')->first();
+           foreach ($projects as $project) {
+            if ($project->language_id==$lang_ar->id){
+                $ar_project=$project;
+                $en_project=Project::where('slug',$ar_project->slug)->first();
+            }else{
+                $en_project=$project;
+                $ar_project=Project::where('slug',$en_project->slug)->first();
             }
-            return back()->with('projects_success','Project/s deleted successfully!');
-        } else {
-            return back();
-        }
-        $projects = Project::findOrFail($request->checkbox_array);
-        foreach ($projects as $project) {
-            $pro=Project::where('slug',$project->slug)->delete();
-            $project->delete();
-        }
-
+            $ar_arry=$ar_project->toArray();
+            $en_arry=$en_project->toArray();
+               unset($ar_arry['id']);
+               unset($en_arry['id']);
+             $ar_arry['user_id']=auth()->id();
+             $en_arry['user_id']=auth()->id();
+             $new_ar_project=Project::create($ar_arry);
+             $new_en_project=Project::create($en_arry);
+           }
+       }else{
+           if(isset($request->delete_all) && !empty($request->checkbox_array)) {
+               $projects = Project::findOrFail($request->checkbox_array);
+               foreach ($projects as $project) {
+                   $pro=Project::where('slug',$project->slug)->delete();
+                   $project->delete();
+               }
+               return back()->with('projects_success','Project/s deleted successfully!');
+           } else {
+               return back();
+           }
+           $projects = Project::findOrFail($request->checkbox_array);
+           foreach ($projects as $project) {
+               $pro=Project::where('slug',$project->slug)->delete();
+               $project->delete();
+           }
+       }
         return back();
         //return 'works';
     }

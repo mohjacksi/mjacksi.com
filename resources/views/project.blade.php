@@ -36,6 +36,7 @@
 
 			        <a href="{{$project->button_link}}" target="_blank" class="btn btn-style1"><span>{{$project->button_text}}</span></a>
                     @if($project->ios_link != null)
+
 			            <a href="{{$project->ios_link}}" target="_blank" class="btn btn-style1"><span>App Store</span></a>
                     @endif
                     @if($project->android_link != null)

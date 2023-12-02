@@ -44,6 +44,7 @@
                 @endif
 
 
+
                 <form action="{{route('delete.project')}}" method="POST" class="form-inline">
                 @csrf
                 @method('DELETE')

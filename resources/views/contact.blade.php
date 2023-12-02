@@ -5,8 +5,8 @@
 
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{$contactsetting->meta_title}}</h1>
        <ul class="page-list">
@@ -18,11 +18,11 @@
 
 
    <div class="contant-section-page">
-      
+
       <div class="container">
-        
+
           <div class="row">
-                  
+
                   <div class="col-md-4">
                       <div class="contact-element-wrapper">
                         <div class="contact-element">
@@ -71,7 +71,7 @@
   <div class="iframe-contact">
     <div class="container">
       <div class="row">
-        
+
         <div class="col-md-6">
             <h3> {!!$contactsetting->title!!} </h3>
             {!!$contactsetting->iframe_txt!!}
@@ -83,17 +83,17 @@
 
               @if ($message = Session::get('success'))
                   <div class="alert alert-success alert-block">
-                      <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>    
+                      <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
                       <strong>{{ $message }}</strong>
                   </div>
               @endif
 
               {!! NoCaptcha::renderJs() !!}
 
-              
+
 
               <form method="POST" action="{{route('contactPost')}}">
-                 
+
                  @csrf
                  <div class="row">
                     <div class="col-md-6">
@@ -109,7 +109,7 @@
                           <span class="text-danger">{{ $errors->first('email') }}</span>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div class="row">
@@ -118,7 +118,7 @@
                             <input name="phone" type="text" class="form-control" id="phone" aria-describedby="name" placeholder="{!!$contactsetting->form_input_budget!!}">
                             <span class="text-danger">{{ $errors->first('phone') }}</span>
                         </div>
-                        
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -128,8 +128,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                     <textarea name="comment" placeholder="{!!$contactsetting->form_message!!}" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     <span class="text-danger">{{ $errors->first('comment') }}</span>
@@ -137,7 +137,7 @@
 
 
 
-             
+
                 {!! NoCaptcha::display() !!}
 
                 @if ($errors->has('g-recaptcha-response'))
@@ -145,9 +145,10 @@
                 @endif
 
 
-                <button type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
+                <button onclick="window.location.href = 'https://jacksi.co.uk/contact-thank-you-en';" type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
+                <button onclick="window.location.href = 'https://jacksi.co.uk/contact-thank-you-ar';" type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
             </form>
-        
+
         </div>
 
 
@@ -155,11 +156,11 @@
     </div>
   </div>
 
- 
+
 
    <div class="clients-section">
         <div class="container">
-            
+
             <div class="clients-slider owl-carousel">
                   @foreach($clients as $client)
                   <div class="clients-slide">
@@ -167,7 +168,7 @@
                   </div>
                   @endforeach
             </div>
-            
+
         </div>
     </div>
 

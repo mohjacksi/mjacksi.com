@@ -28,6 +28,7 @@ use App\Models\Contact;
 use Mail;
 use Validator;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -204,12 +205,13 @@ class HomeController extends Controller
                 'comment' => $request->get('comment')
             ],
             function ($message) {
-                $message->from('contact@mjacksi.com');
-                $message->to('contact@mjacksi.com', 'Your Name')
+                $message->from('contact@jacksi.co.uk');
+                $message->to('contact@jacksi.co.uk', 'Mohammed')
                 ->subject('Your Website Contact Form');
             }
         );
 
+        return Redirect::to('https://jacksi.co.uk/contact-thank-you');
 
         return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
     }

@@ -145,8 +145,7 @@
                 @endif
 
 
-                <button onclick="window.location.href = 'https://jacksi.co.uk/contact-thank-you-en';" type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
-                <button onclick="window.location.href = 'https://jacksi.co.uk/contact-thank-you-ar';" type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
+                <button onclick="window.location.href = 'https://jacksi.co.uk/contact-thank-you';" type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
             </form>
 
         </div>

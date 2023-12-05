@@ -70,7 +70,7 @@
     fbq('init', '{{$setting->facebook_pixel}}');
     fbq('track', 'PageView');
     @if(Request::url() === 'https://jacksi.co.uk/contact-thank-you')
-    fbq('track', 'Lead');
+        fbq('track', 'SubmitApplication');
     @endif
     </script>
     <noscript><img height="1" width="1" style="display:none"

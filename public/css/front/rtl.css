@@ -1,3 +1,5 @@
+div.inline { float:left; }
+.clearBoth { clear:both; }
 .rtl img.flag-lang {
     margin-left: 3px;
     margin-right: 0;

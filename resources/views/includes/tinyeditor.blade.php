@@ -1,4 +1,7 @@
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- Place the first <script> tag in your HTML's <head> -->
+    <script src="https://cdn.tiny.cloud/1/1h3qr40d2zn9xrt0vvfaap245e62bxn6b34g2epixbz8lo51/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
     var editor_config = {
         path_absolute : "/",

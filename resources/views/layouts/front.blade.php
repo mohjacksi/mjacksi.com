@@ -69,6 +69,9 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '{{$setting->facebook_pixel}}');
     fbq('track', 'PageView');
+    @if(Request::url() === 'https://jacksi.co.uk/contact-thank-you')
+        fbq('track', 'SubmitApplication');
+    @endif
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id={{$setting->facebook_pixel}}&ev=PageView&noscript=1"

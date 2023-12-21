@@ -10,6 +10,11 @@ Author: Mohammed Jacksi
 */
 
 /* I. HEADER */
+
+div.inline { float:left; }
+
+.clearBoth { clear:both; }
+
 .rc-anchor-aria-status {
     display: block;
 }

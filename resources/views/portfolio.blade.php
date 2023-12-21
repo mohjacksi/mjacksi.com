@@ -26,7 +26,7 @@
                     <h4>{{clean( trans('mjacksi-backend.sort_by') , array('Attr.EnableID' => true))}}</h4>
                     <div class="filter active" data-filter="all"><span>{{clean( trans('mjacksi-backend.all') , array('Attr.EnableID' => true))}}</span></div>
                     @foreach($project_categories as $category)
-                      <div class="filter" data-filter="{{$category->name}}"><span>{{$category->name}}</span></div>
+                      <div class="filter inline clearBoth" data-filter="{{$category->name}}"><span>{{$category->name}}</span></div>
                     @endforeach
                 </div>
             </div>

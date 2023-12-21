@@ -12,7 +12,7 @@
        <ul class="page-list">
             <li class="item-home"><a class="bread-link" href="{{ route('home') }}" title="Home">{{$pricingsetting->breadcrumbs_anchor}}</a></li>
             <li class="separator separator-home"></li>
-            <li class="item-current">{{$pricingsetting->meta_title}}</li>
+            <li class="item-current">{{isset($pricingsetting->meta_title) ? $pricingsetting->meta_title : ''}}</li>
         </ul>
    </div>
 

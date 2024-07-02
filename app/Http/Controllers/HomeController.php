@@ -120,7 +120,6 @@ class HomeController extends Controller
         $lang_id = $currentLang->id;
         $langs = Language::all();
 
-
         $data['headerfooter'] = HeaderFooterSetting::find($lang_id);
         $data['setting'] = Setting::find($lang_id);
         $data['menus'] = Menu::where('language_id', $lang_id)->get();

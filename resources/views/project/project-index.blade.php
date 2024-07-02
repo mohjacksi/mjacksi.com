@@ -76,6 +76,7 @@
                             <th scope="col">{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</th>
                             <th scope="col">{{clean( trans('mjacksi-backend.category') , array('Attr.EnableID' => true))}}</th>
                             <th scope="col">{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}}</th>
+                            <th scope="col">{{clean( trans('mjacksi-backend.order') , array('Attr.EnableID' => true))}}</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -86,6 +87,7 @@
                             <th scope="col">{{clean( trans('mjacksi-backend.title') , array('Attr.EnableID' => true))}}</th>
                             <th scope="col">{{clean( trans('mjacksi-backend.category') , array('Attr.EnableID' => true))}}</th>
                             <th scope="col">{{clean( trans('mjacksi-backend.body') , array('Attr.EnableID' => true))}}</th>
+                            <th scope="col">{{clean( trans('mjacksi-backend.order') , array('Attr.EnableID' => true))}}</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -98,6 +100,7 @@
                                     <td data-label="TITLE">{{$project->title}}</td>
                                     <td data-label="Category">{{$project->project_category ? $project->project_category->name : 'Uncategorized'}}</td>
                                     <td class="body-project">{!!$project->body!!}</td>
+                                    <td class="body-project">{{$project->project_order}}</td>
                                 </tr>
                              @endforeach
                         @endif
@@ -106,6 +109,9 @@
 
                     </tbody>
                 </table>
+                    @if($projects)
+                        {{$projects->links()}}
+                    @endif
 
                 </form>
 

@@ -6,6 +6,7 @@ return [
 
 
     'all' => 'الجميع',
+    'order' => 'الترتيب',
     'Duplicate' => 'نسخ',
     'photos' => 'الصور',
     'sort_by' => 'ترتيب حسب',

@@ -24,12 +24,16 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         $langs = Language::all();
+        if ($request->language == null){
+
+            $request->language ='ar';
+        }
         $lang = Language::where('code', $request->language)->first();
         $lang_id = $lang->id;
 
         //return $lang;
 
-        $data['projects'] = Project::where('language_id', $lang_id)->orderBy('id', 'DESC')->paginate(10);
+        $data['projects'] = Project::where('language_id', $lang_id)->orderBy('project_order', 'asc')->paginate(10);
 
         $data['lang_id'] = $lang_id;
 
@@ -55,6 +59,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(ProjectRequest $request)
     {
 

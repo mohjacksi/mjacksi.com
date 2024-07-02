@@ -30,6 +30,8 @@ class Project extends Model
         'button_link',
         'ios_link',
         'android_link',
+        'android_link',
+        'project_order',
     ];
 
     public function user() {

@@ -86,6 +86,13 @@
                                                 <div class="slug-container"><span>{{URL::to('/')}}/{{clean( trans('mjacksi-backend.project') , array('Attr.EnableID' => true))}}/</span><input type="text" name="slug" class="form-control" placeholder=""></div>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <strong>{{clean( trans('mjacksi-backend.order') , array('Attr.EnableID' => true))}}</strong>
+                                               <input type="number" name="project_order" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
                                     </div>
 
 

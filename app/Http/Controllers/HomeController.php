@@ -111,6 +111,7 @@ class HomeController extends Controller
 
     public function portfolio()
     {
+
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
         } else {

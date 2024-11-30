@@ -32,6 +32,7 @@ class Project extends Model
         'android_link',
         'android_link',
         'project_order',
+        'status',
     ];
 
     public function user() {

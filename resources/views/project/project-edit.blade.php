@@ -74,6 +74,19 @@
                                              </div>
                                          </div>
                                      </div>
+                                     <div class="row">
+
+                                         <div class="col-md-6">
+                                             <div class="form-group">
+                                                 <strong>Status</strong>
+
+                                                 <select name="status" class="form-control">
+                                                     <option {{$project_en->status == 1?'selected':''}} value="1">show</option>
+                                                     <option {{$project_en->status == 0?'selected':''}} value="0">hide</option>
+                                                 </select>
+                                             </div>
+                                         </div>
+                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">

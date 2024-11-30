@@ -124,7 +124,7 @@ class HomeController extends Controller
         $data['headerfooter'] = HeaderFooterSetting::find($lang_id);
         $data['setting'] = Setting::find($lang_id);
         $data['menus'] = Menu::where('language_id', $lang_id)->get();
-        $data['projects'] = Project::where('language_id', $lang_id)->orderBy('project_order','asc')->get();
+        $data['projects'] = Project::where('language_id', $lang_id)->where('status',1)->orderBy('project_order','asc')->get();
         //$data['projects'] = Project::where('language_id', $lang_id)->get();
         $data['portfoliosettings'] = PortfolioSetting::find($lang_id);
         $data['project_categories'] = ProjectCategory::where('language_id', $lang_id)->get();

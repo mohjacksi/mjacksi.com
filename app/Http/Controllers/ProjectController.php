@@ -191,6 +191,7 @@ class ProjectController extends Controller
         $input['project_category_id']=$input['project_category_id_en'];
         $input['meta_title']=$input['meta_title_en'];
         $input['meta_description']=$input['meta_description_en'];
+
         $project_en->update($input);
 
         $project_ar=Project::findOrFail($request->project_ar);
